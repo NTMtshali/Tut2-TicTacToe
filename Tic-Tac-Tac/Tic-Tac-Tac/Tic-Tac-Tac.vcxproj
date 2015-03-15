@@ -78,6 +78,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="TicTacToe.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TicTacToe.cpp" />
+    <ClCompile Include="TicTacToeTest.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
