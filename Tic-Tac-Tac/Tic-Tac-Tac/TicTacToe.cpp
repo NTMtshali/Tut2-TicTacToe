@@ -1,3 +1,5 @@
+/*Author: Ndumiso Mtshali(213522460)*/
+/*Implementation*/
 #include <iostream>
 #include "TicTacToe.h"
 #include <string>
@@ -5,6 +7,7 @@ using namespace std;
 
 TicTacToe::TicTacToe()
 {
+	//Initialize the elements of the Board array with number characters
 	Board[0][0] = '1';
 	Board[0][1] = '2';
 	Board[0][2] = '3';
@@ -16,26 +19,37 @@ TicTacToe::TicTacToe()
 	Board[2][2] = '9';
 }
 
-
+/*function checks for a winner. A true is returned to the calling function
+depending on which if statement was executed and then the relevent player that won is printed on screen. Otherwise a false is returned to the calling function.*/
 bool TicTacToe::iWon()
 {
-	if (check('x'))
+	 
+	if (check('x'))		// If a column, diagonal, or row of 3 x's is found true is retuned.
 	{
 		cout <<"\n"<<" Player1 You won" << endl;
 		printBoard();
-		return check('x');
+		return true;
 	}
 
-	if (check('0'))
+	if (check('0')) // If a column, diagonal, or row of 3 o's is found true is retuned.
 	{
 		cout << "Player2 You won" << endl;
 		printBoard();
-		return check('0');
+		return true;
+	}
+
+	else
+	{
+
+		return false; 
 	}
 }
 
+	/*checks for a column, diagonal, or row with the same sign. If either of these is found a true is returned to
+	the calling function otherwise a false is returned to it.*/
 bool TicTacToe:: check(char sgn)
 {
+	
 	if (Board[0][0] == sgn && Board[0][1] == sgn && Board[0][2] == sgn)
 	{
 		return true;
@@ -75,6 +89,8 @@ bool TicTacToe:: check(char sgn)
 
 bool TicTacToe::Move(int numb, char sgn)
 {
+	/*checks whether a position played is valid. If its valid the position is set with the relevent sign(x or o) 
+	then a true is returned to the calling function otherwise a false is returned to it. */
 	switch (numb)
 	{
 	case 1 : if (Board[0][0] !=sgn)
@@ -170,11 +186,10 @@ bool TicTacToe::Move(int numb, char sgn)
 	}
 }
 
+/*The function prints the current state of the board*/
 void TicTacToe::printBoard()
 	{
-		int i;
-		int j;
-
+		
 		cout << '[' << Board[0][0] << '|' << Board[0][1] << '|' << Board[0][2] << ']' << "\n"
 			 << '[' << Board[1][0] << '|' << Board[1][1] << '|' << Board[1][2] << ']' << "\n"
 			 << '[' << Board[2][0] << '|' << Board[2][1] << '|' << Board[2][2] << ']' << endl;
