@@ -181,7 +181,7 @@ bool TicTacToe::Move(int numb, char sgn)
 			}
 			break;
 	default:
-			return false;
+			return false; //returns false if a position not in the board is played
 			break;
 	}
 }
